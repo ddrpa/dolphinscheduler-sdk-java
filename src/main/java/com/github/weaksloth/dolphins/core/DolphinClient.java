@@ -7,6 +7,7 @@ import com.github.weaksloth.dolphins.project.ProjectOperator;
 import com.github.weaksloth.dolphins.remote.DolphinsRestTemplate;
 import com.github.weaksloth.dolphins.resource.ResourceOperator;
 import com.github.weaksloth.dolphins.schedule.ScheduleOperator;
+import com.github.weaksloth.dolphins.task.TaskOperator;
 import com.github.weaksloth.dolphins.taskinstance.TaskInstanceOperator;
 import com.github.weaksloth.dolphins.tenant.TenantOperator;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,7 @@ public class DolphinClient {
   private ScheduleOperator scheduleOperator;
   private ProjectOperator projectOperator;
   private TenantOperator tenantOperator;
+  private TaskOperator taskOperator;
   private TaskInstanceOperator taskInstanceOperator;
 
   public DolphinClient(
@@ -49,6 +51,8 @@ public class DolphinClient {
         new ScheduleOperator(this.dolphinAddress, this.token, this.dolphinsRestTemplate);
     this.projectOperator =
         new ProjectOperator(this.dolphinAddress, this.token, this.dolphinsRestTemplate);
+    this.taskOperator =
+        new TaskOperator(this.dolphinAddress, this.token, this.dolphinsRestTemplate);
     this.taskInstanceOperator =
         new TaskInstanceOperator(this.dolphinAddress, this.token, this.dolphinsRestTemplate);
     this.tenantOperator =
@@ -81,6 +85,10 @@ public class DolphinClient {
 
   public TaskInstanceOperator opsForTaskInstance() {
     return this.taskInstanceOperator;
+  }
+
+  public TaskOperator opsForTask() {
+    return this.taskOperator;
   }
 
   public TenantOperator opsForTenant() {

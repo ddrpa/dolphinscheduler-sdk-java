@@ -1,6 +1,5 @@
 package com.github.weaksloth.dolphins.task;
 
-import com.github.weaksloth.dolphins.process.Parameter;
 import com.github.weaksloth.dolphins.remote.RequestHttpEntity;
 import com.github.weaksloth.dolphins.util.JacksonUtils;
 import java.util.Collections;
@@ -15,9 +14,6 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class HttpTask extends AbstractTask {
-
-  private List<Parameter> localParams = Collections.emptyList();
-
   /** http request param */
   private List<HttpParam> httpParams = Collections.emptyList();
 

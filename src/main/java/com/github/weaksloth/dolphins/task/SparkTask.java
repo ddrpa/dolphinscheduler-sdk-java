@@ -1,6 +1,5 @@
 package com.github.weaksloth.dolphins.task;
 
-import com.github.weaksloth.dolphins.process.Parameter;
 import java.util.Collections;
 import java.util.List;
 import lombok.Data;
@@ -41,8 +40,6 @@ public class SparkTask extends AbstractTask {
 
   /** optional value:SPARK2,SPARK1 */
   private String sparkVersion;
-
-  private List<Parameter> localParams = Collections.emptyList();
 
   private List<TaskResource> resourceList = Collections.emptyList();
 
